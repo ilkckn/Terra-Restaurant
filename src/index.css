@@ -1,0 +1,108 @@
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display:regular,500,600,700,800,900,italic,500italic,600italic,700italic,800italic,900italic);
+@import url(https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,regular,500,600,700,300italic,italic,500italic,600italic,700italic);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* ─────────────────────────────────────────
+     ARKA PLANLAR
+  ───────────────────────────────────────── */
+  --bg-page: #f8f6f1; /* Ana sayfa zemini (off-white) */
+  --bg-section-alt: #f2efe9; /* Alternatif section arka planı (biraz daha koyu) */
+  --bg-card: #fae5d9; /* Kart arka planı (terracotta açık tonu) */
+  --bg-card-green: #e8f0e9; /* Yeşil aksanlı kart arka planı */
+  --bg-dark: #2d2d2b; /* Koyu section (stats bar, footer gibi) */
+  --bg-nav: #ffffff; /* Navbar arka planı */
+
+  /* ─────────────────────────────────────────
+     METİN RENKLERİ
+  ───────────────────────────────────────── */
+  --text-heading: #2d2d2b; /* H1, H2, H3 — tüm başlıklar */
+  --text-body: #6b6b68; /* Paragraf, açıklama metinleri */
+  --text-muted: #a8a8a4; /* Soluk / ikincil metin (tarih, kategori vb.) */
+  --text-on-dark: #f8f6f1; /* Koyu arka plan üstündeki metin */
+  --text-on-dark-muted: rgba(248, 246, 241, 0.5); /* Koyu zeminde soluk metin */
+
+  /* ─────────────────────────────────────────
+     ANA VURGU — TERRACOTTA (CTA, Buton, Aktif)
+  ───────────────────────────────────────── */
+  --accent-primary: #d4622a; /* Ana CTA butonu, aktif link, vurgu */
+  --accent-primary-hover: #a8431a; /* Buton hover rengi */
+  --accent-primary-light: #f0a882; /* Açık terracotta (tag arka planı vb.) */
+  --accent-primary-pale: #fae5d9; /* Çok açık terracotta (kart zemini) */
+
+  /* ─────────────────────────────────────────
+     İKİNCİL VURGU — SAGE GREEN (Etiket, Tag, İkincil buton)
+  ───────────────────────────────────────── */
+  --accent-secondary: #7a9e7e; /* Etiket, "Fine Dining" tag, ikincil aksanlar */
+  --accent-secondary-hover: #4e7a52; /* Hover tonu */
+  --accent-secondary-light: #b4cdb7; /* Açık sage (dekoratif detaylar) */
+  --accent-secondary-pale: #e8f0e9; /* Çok açık sage (kart arka planı) */
+
+  /* ─────────────────────────────────────────
+     ALTIN — Fiyat, Yıldız, Özel Detaylar
+  ───────────────────────────────────────── */
+  --accent-gold: #e8b84b; /* Fiyat, yıldız, özel altın detaylar */
+  --accent-gold-hover: #c49020; /* Altın hover tonu */
+  --accent-gold-light: #f5d98a; /* Açık altın (dekoratif) */
+
+  /* ─────────────────────────────────────────
+     BORDER / ÇİZGİLER
+  ───────────────────────────────────────── */
+  --border-default: #e0dcd4; /* Genel border (input, kart, ayraç) */
+  --border-light: rgba(0, 0, 0, 0.06); /* Çok ince, neredeyse görünmez çizgi */
+  --border-accent: rgba(212, 98, 42, 0.25); /* Terracotta renkli border */
+  --border-green: rgba(122, 158, 126, 0.3); /* Sage green border */
+  --border-gold: rgba(232, 184, 75, 0.35); /* Altın border */
+
+  /* ─────────────────────────────────────────
+     FONTLAR
+  ───────────────────────────────────────── */
+  --font-heading: "Playfair Display", serif; /* H1, H2, logo, fiyat */
+  --font-elegant: "Cormorant Garamond", serif; /* Açıklama, alt başlık, quote */
+  --font-body: "Montserrat", sans-serif; /* Nav, buton, body, etiket */
+
+  font-size: 62.5%;
+}
+
+html,
+body,
+#root {
+  min-height: 100vh;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--bg-page);
+  font-family: var(--font-body);
+  color: var(--text-body);
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.app {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 8rem;
+}

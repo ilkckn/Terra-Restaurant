@@ -1,0 +1,499 @@
+.section3-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  border-bottom: 1px solid var(--border-default);
+
+  aside {
+    background-color: var(--bg-dark);
+    padding: 6rem;
+    position: relative;
+
+    .heading-top {
+      font-family: var(--font-body);
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent-primary-light);
+    }
+
+    .heading-main {
+      display: flex;
+      flex-direction: column;
+      line-height: 5.5rem;
+
+      h1:nth-child(1) {
+        font-family: var(--font-elegant);
+        font-size: 4.5rem;
+        font-weight: 700;
+        color: var(--text-on-dark);
+      }
+
+      h1:nth-child(2) {
+        font-family: var(--font-elegant);
+        font-size: 4.5rem;
+        font-weight: 600;
+        color: var(--accent-primary-light);
+      }
+    }
+
+    .desc {
+      width: 85%;
+      font-family: var(--font-elegant);
+      font-size: 1.7rem;
+      font-weight: 400;
+      letter-spacing: 1.4px;
+      line-height: 2.5rem;
+      color: var(--text-on-dark);
+      margin-top: 1rem;
+    }
+
+    .discover-menu-link {
+      position: absolute;
+      bottom: 3rem;
+      right: 6rem;
+      text-decoration: none;
+
+      p {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--font-body);
+        font-size: 1.1rem;
+        font-weight: 400;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--text-on-dark);
+        transition: all 0.3s ease-in-out;
+
+        .arrow-right {
+          transform: translateY(0.1rem);
+          font-size: 1.5rem;
+        }
+        &:hover {
+          color: var(--accent-primary-light);
+        }
+      }
+    }
+  }
+
+  .menu {
+    padding: 6rem;
+    display: flex;
+    flex-direction: column;
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-default);
+      padding: 2rem;
+      position: relative;
+      cursor: pointer;
+
+      .content-left {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        z-index: 1;
+
+        span {
+          font-family: var(--font-body);
+          font-size: 1.1rem;
+          font-weight: 500;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          color: var(--accent-secondary);
+        }
+        h2 {
+          font-family: var(--font-heading);
+          font-size: 1.9rem;
+          font-weight: 800;
+          letter-spacing: 1px;
+          color: var(--text-heading);
+        }
+        p {
+          font-family: var(--font-elegant);
+          font-size: 1.7rem;
+          font-weight: 400;
+          letter-spacing: 0.5px;
+          color: var(--text-body);
+        }
+      }
+
+      .content-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.5rem;
+        z-index: 1;
+        flex-shrink: 0;
+        margin-left: 2rem;
+
+        span {
+          font-family: var(--font-body);
+          font-size: 1.8rem;
+          font-weight: 600;
+          letter-spacing: 1.5px;
+          color: var(--accent-gold);
+        }
+        p {
+          font-family: var(--font-elegant);
+          font-size: 1.4rem;
+          font-weight: 400;
+          text-transform: capitalize;
+          letter-spacing: 0.6px;
+          padding: 0.5rem 1rem;
+          color: var(--text-on-dark);
+          background-color: var(--bg-dark);
+          white-space: nowrap;
+        }
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--bg-dark);
+        transform: scaleX(0);
+        transform-origin: left;
+      }
+
+      &:hover::after {
+        transform: scaleX(1);
+        transition: transform 0.3s ease;
+      }
+      &:hover .content-left h2 {
+        color: var(--text-on-dark);
+      }
+      &:hover .content-left p {
+        color: var(--text-on-dark);
+      }
+      &:hover .content-right p {
+        background-color: var(--accent-gold);
+        color: var(--text-heading);
+      }
+    }
+
+    .menu-item:last-child {
+      border-bottom: 1px solid var(--border-default);
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .section3-container {
+    grid-template-columns: 1fr 2fr;
+
+    aside {
+      padding: 4rem;
+      .heading-main {
+        line-height: 4.5rem;
+        h1:nth-child(1),
+        h1:nth-child(2) {
+          font-size: 3.8rem;
+        }
+      }
+      .desc {
+        font-size: 1.5rem;
+        line-height: 2.2rem;
+      }
+      .discover-menu-link {
+        right: 3rem;
+        bottom: 2.5rem;
+      }
+    }
+
+    .menu {
+      padding: 4rem;
+      .menu-item .content-left {
+        h2 {
+          font-size: 1.7rem;
+        }
+        p {
+          font-size: 1.5rem;
+        }
+      }
+      .menu-item .content-right {
+        span {
+          font-size: 1.6rem;
+        }
+        p {
+          font-size: 1.3rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 820px) {
+  .section3-container {
+    grid-template-columns: 1fr;
+
+    aside {
+      padding: 3.5rem;
+      .heading-top {
+        font-size: 1.3rem;
+      }
+      .heading-main {
+        line-height: 4rem;
+        h1:nth-child(1),
+        h1:nth-child(2) {
+          font-size: 3.4rem;
+        }
+      }
+      .desc {
+        width: 100%;
+        font-size: 1.5rem;
+        line-height: 2.2rem;
+      }
+      .discover-menu-link {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        margin-top: 2rem;
+        display: inline-block;
+      }
+    }
+
+    .menu {
+      padding: 3.5rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .section3-container {
+    aside {
+      padding: 3rem;
+      .heading-main {
+        line-height: 3.8rem;
+        h1:nth-child(1),
+        h1:nth-child(2) {
+          font-size: 3.2rem;
+        }
+      }
+    }
+
+    .menu {
+      padding: 3rem;
+      .menu-item {
+        padding: 1.8rem 1rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+        .content-left {
+          span {
+            font-size: 1rem;
+          }
+          h2 {
+            font-size: 1.6rem;
+          }
+          p {
+            font-size: 1.4rem;
+          }
+        }
+        .content-right {
+          margin-left: 0;
+          span {
+            font-size: 1.5rem;
+          }
+          p {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 430px */
+@media (max-width: 430px) {
+  .section3-container {
+    aside {
+      padding: 2.8rem 2.5rem;
+      .heading-top {
+        font-size: 1.3rem;
+        letter-spacing: 1.5px;
+      }
+      .heading-main {
+        line-height: 3.6rem;
+        h1:nth-child(1),
+        h1:nth-child(2) {
+          font-size: 3.2rem;
+        }
+      }
+      .desc {
+        font-size: 1.6rem;
+        line-height: 2.3rem;
+      }
+      .discover-menu-link {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        margin-top: 1.5rem;
+        display: inline-block;
+        p {
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    .menu {
+      padding: 2.2rem 2.5rem;
+      .menu-item {
+        padding: 1.8rem 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        .content-left {
+          gap: 0.4rem;
+          span {
+            font-size: 1.2rem;
+          }
+          h2 {
+            font-size: 1.8rem;
+          }
+          p {
+            font-size: 1.6rem;
+          }
+        }
+        .content-right {
+          align-items: flex-start;
+          margin-left: 0;
+          span {
+            font-size: 1.8rem;
+          }
+          p {
+            font-size: 1.4rem;
+            white-space: normal;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 410px */
+@media (max-width: 410px) {
+  .section3-container {
+    aside {
+      padding: 2.5rem 2.2rem;
+      .heading-main {
+        line-height: 3.4rem;
+        h1:nth-child(1),
+        h1:nth-child(2) {
+          font-size: 3rem;
+        }
+      }
+      .desc {
+        font-size: 1.5rem;
+        line-height: 2.2rem;
+      }
+    }
+
+    .menu {
+      padding: 2rem 2.2rem;
+      .menu-item .content-left {
+        h2 {
+          font-size: 1.7rem;
+        }
+        p {
+          font-size: 1.5rem;
+        }
+      }
+      .menu-item .content-right {
+        span {
+          font-size: 1.7rem;
+        }
+        p {
+          font-size: 1.3rem;
+        }
+      }
+    }
+  }
+}
+
+/* 390px */
+@media (max-width: 390px) {
+  .section3-container {
+    aside {
+      padding: 2.5rem 2rem;
+      .heading-top {
+        font-size: 1.2rem;
+      }
+      .heading-main {
+        line-height: 3.2rem;
+        h1:nth-child(1),
+        h1:nth-child(2) {
+          font-size: 2.8rem;
+        }
+      }
+      .desc {
+        font-size: 1.45rem;
+        line-height: 2.1rem;
+      }
+    }
+
+    .menu {
+      padding: 1.8rem 2rem;
+      .menu-item .content-left {
+        h2 {
+          font-size: 1.6rem;
+        }
+        p {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}
+
+/* 375px */
+@media (max-width: 375px) {
+  .section3-container {
+    aside {
+      padding: 2.2rem 1.8rem;
+      .heading-top {
+        font-size: 1.1rem;
+      }
+      .heading-main {
+        line-height: 3rem;
+        h1:nth-child(1),
+        h1:nth-child(2) {
+          font-size: 2.6rem;
+        }
+      }
+      .desc {
+        font-size: 1.35rem;
+        line-height: 2rem;
+      }
+    }
+
+    .menu {
+      padding: 1.6rem 1.8rem;
+      .menu-item .content-left {
+        span {
+          font-size: 1.1rem;
+        }
+        h2 {
+          font-size: 1.5rem;
+        }
+        p {
+          font-size: 1.35rem;
+        }
+      }
+      .menu-item .content-right {
+        span {
+          font-size: 1.6rem;
+        }
+        p {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}
