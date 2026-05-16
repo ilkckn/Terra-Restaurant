@@ -1,0 +1,1278 @@
+.menu-container {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr);
+
+  /* ─────────────────────────────────────
+     HEADER
+  ───────────────────────────────────── */
+  header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--bg-dark);
+    padding: 6rem;
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      span {
+        width: 3rem;
+        height: 0.2rem;
+        background-color: var(--accent-primary-light);
+      }
+
+      p {
+        font-family: var(--font-body);
+        font-size: 1.5rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--accent-primary-light);
+      }
+    }
+
+    .main-header h1 {
+      font-family: var(--font-heading);
+      font-size: 5rem;
+      letter-spacing: 2px;
+      color: var(--text-on-dark);
+
+      span {
+        color: var(--accent-primary-light);
+      }
+    }
+
+    .desc {
+      font-family: var(--font-elegant);
+      font-size: 2.2rem;
+      font-weight: 600;
+      line-height: 2.7rem;
+      letter-spacing: 1.2px;
+      max-width: 65rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+    }
+  }
+
+  /* ─────────────────────────────────────
+     TONIGHT'S HIGHLIGHTS
+     Her zaman row + wrap — hiç değişmez
+  ───────────────────────────────────── */
+  .tonights-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    padding: 4rem;
+    background-color: var(--bg-nav);
+    border-bottom: 1px solid var(--border-default);
+
+    header {
+      width: 100%;
+      background-color: transparent;
+      padding: 0;
+
+      h2 {
+        flex: 1;
+        display: inline-flex;
+        align-items: center;
+        gap: 1.5rem;
+        font-size: 2rem;
+        font-family: var(--font-body);
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        color: var(--accent-primary);
+
+        &::after {
+          content: "";
+          height: 0.1rem;
+          background-color: var(--text-muted);
+          flex: 1;
+        }
+      }
+    }
+
+    .highlight-list {
+      display: flex;
+      flex-direction: row; /* her zaman row */
+      flex-wrap: wrap; /* her zaman wrap */
+      align-items: stretch;
+      gap: 1rem;
+
+      .highlight-item {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        flex: 1 1 30rem; /* küçük ekranda tek sıraya geçer */
+        min-width: 0; /* taşmayı önler */
+        background-color: var(--bg-page);
+        padding: 3rem 2rem;
+        border: 1px solid var(--border-light);
+        border-top: 2px solid var(--accent-primary);
+        cursor: pointer;
+
+        .highlight-category:nth-child(1) {
+          position: relative;
+          font-family: var(--font-body);
+          font-size: 1.5rem;
+          font-weight: 600;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          color: var(--accent-primary);
+          transform: translateX(1.5rem);
+
+          &::before {
+            content: "";
+            position: absolute;
+            left: -1.5rem;
+            top: 50%;
+            transform: translateY(-40%);
+            width: 0.8rem;
+            height: 0.8rem;
+            background-color: var(--accent-primary);
+            border-radius: 50%;
+          }
+        }
+
+        h1 {
+          font-family: var(--font-heading);
+          font-size: 3rem;
+          font-weight: 700;
+          text-transform: capitalize;
+          letter-spacing: 0.5px;
+          color: var(--text-body);
+        }
+
+        p:nth-child(3) {
+          margin-top: 0.5rem;
+          font-family: var(--font-elegant);
+          font-size: 2rem;
+          font-weight: 500;
+          line-height: 2.4rem;
+          color: var(--text-muted);
+        }
+
+        .price-tof {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: 1rem;
+
+          p:nth-child(1) {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: var(--accent-gold-hover);
+          }
+
+          p:nth-child(2) {
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            background-color: var(--bg-dark);
+            padding: 0.5rem 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  /* ─────────────────────────────────────
+     MENU CATEGORIES — Desktop
+  ───────────────────────────────────── */
+  .menu-categories {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    height: calc(100vh - 15rem);
+    overflow: hidden;
+
+    aside {
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid var(--border-default);
+      background-color: var(--bg-nav);
+      position: sticky;
+      top: 15rem;
+      height: calc(100vh - 15rem);
+      overflow-y: auto;
+      overflow-x: hidden; /* yatay taşmayı önle */
+
+      scrollbar-width: thin;
+      scrollbar-color: var(--border-default) transparent;
+      &::-webkit-scrollbar {
+        width: 4px;
+      }
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--border-default);
+        border-radius: 4px;
+      }
+
+      h2 {
+        font-family: var(--font-body);
+        font-size: 1.7rem;
+        font-weight: 500;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        padding: 4rem 4rem 1rem;
+        flex-shrink: 0;
+      }
+
+      .aside-content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0 2rem;
+        flex: 1;
+      }
+
+      .menu-category {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.5rem 2rem;
+        cursor: pointer;
+        border-radius: 0.5rem;
+        transition: background-color 0.2s ease;
+        flex-shrink: 0;
+
+        &:hover {
+          background-color: var(--bg-page);
+        }
+
+        &.active {
+          background-color: var(--accent-primary-pale);
+          border: 1px solid rgba(212, 98, 42, 0.2);
+          .category-name {
+            color: var(--accent-primary);
+          }
+          .number-of-category {
+            background-color: var(--accent-primary);
+            color: var(--text-on-dark);
+          }
+        }
+
+        .icon-name-type {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          min-width: 0;
+
+          .icon-name {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+            min-width: 0;
+
+            .category-name {
+              font-family: var(--font-body);
+              font-size: 1.5rem;
+              font-weight: 500;
+              text-transform: capitalize;
+              color: var(--text-body);
+            }
+
+            .category-type {
+              font-family: var(--font-elegant);
+              font-size: 1.7rem;
+              font-weight: 500;
+              color: var(--text-muted);
+            }
+          }
+
+          .category-icon {
+            font-size: 2.7rem;
+            flex-shrink: 0;
+          }
+        }
+
+        .number-of-category {
+          font-family: var(--font-body);
+          font-size: 1.6rem;
+          font-weight: 500;
+          color: var(--text-muted);
+          background-color: var(--bg-page);
+          padding: 0.5rem 1rem;
+          transition: all 0.2s ease;
+          flex-shrink: 0;
+        }
+      }
+
+      .good-to-know {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 3rem 4rem;
+        background-color: var(--bg-nav);
+        border-top: 1px solid var(--border-default);
+        margin-top: auto;
+        flex-shrink: 0;
+
+        .gtk-header {
+          background-color: transparent;
+          padding: 0;
+
+          h2 {
+            padding: 0;
+            font-size: 2.2rem;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            text-transform: capitalize;
+            letter-spacing: -0.5px;
+            color: var(--text-heading);
+          }
+        }
+
+        .veg-spicy-cchoice {
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
+
+          .veg,
+          .spicy,
+          .cchoice {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            .veg-icon,
+            .spicy-icon,
+            .cchoice-icon {
+              font-size: 2.3rem;
+            }
+            p {
+              font-family: var(--font-body);
+              font-size: 1.7rem;
+              font-weight: 400;
+              letter-spacing: -0.1px;
+              color: var(--text-muted);
+            }
+          }
+        }
+      }
+    }
+
+    .category-info {
+      background-color: var(--bg-page);
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding: 4rem;
+      overflow-y: auto;
+      overflow-x: hidden;
+      height: calc(100vh - 15rem);
+
+      scrollbar-width: thin;
+      scrollbar-color: var(--border-default) transparent;
+      &::-webkit-scrollbar {
+        width: 4px;
+      }
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--border-default);
+        border-radius: 4px;
+      }
+
+      .empty-state {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        p {
+          font-family: var(--font-elegant);
+          font-size: 2rem;
+          font-weight: 300;
+          color: var(--text-muted);
+          letter-spacing: 0.5px;
+          text-align: center;
+        }
+      }
+
+      .selected-category-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: transparent;
+        padding: 0 0 2rem 0;
+        border-bottom: 1px solid var(--border-default);
+        margin-bottom: 1rem;
+        flex-shrink: 0;
+        gap: 1rem;
+
+        h2 {
+          font-family: var(--font-heading);
+          font-size: 4.5rem;
+          font-weight: 800;
+          letter-spacing: -0.5px;
+          color: var(--text-heading);
+          text-transform: capitalize;
+          min-width: 0;
+
+          span {
+            font-family: var(--font-heading);
+            font-size: 4.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--accent-primary);
+          }
+        }
+
+        span {
+          font-family: var(--font-body);
+          font-size: 1.2rem;
+          letter-spacing: 1.5px;
+          text-transform: uppercase;
+          color: var(--text-muted);
+          flex-shrink: 0;
+        }
+      }
+
+      .category-dishes {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        .dish-item {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          padding: 2rem;
+          cursor: pointer;
+          border-bottom: 1px solid var(--border-light);
+          position: relative;
+          overflow: hidden;
+          z-index: 1;
+
+          &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            width: 0%;
+            background-color: var(--accent-primary-pale);
+            transition: width 0.4s ease;
+            z-index: -1;
+          }
+
+          &:hover::before {
+            width: 100%;
+          }
+          &:hover h3 {
+            color: var(--accent-primary-hover);
+          }
+          &:hover p:nth-child(3) {
+            color: var(--text-heading);
+          }
+
+          p:nth-child(1) {
+            font-family: var(--font-body);
+            font-size: 1.5rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--accent-secondary);
+          }
+
+          h3 {
+            font-family: var(--font-heading);
+            font-size: 2.3rem;
+            font-weight: 700;
+            letter-spacing: -0.1px;
+            color: var(--text-body);
+            transition: color 0.2s ease;
+          }
+
+          p:nth-child(3) {
+            font-family: var(--font-body);
+            font-size: 1.5rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            line-height: 2rem;
+            color: var(--text-body);
+            transition: color 0.2s ease;
+          }
+
+          .price-type-chefChoice {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+
+            .tof {
+              font-family: var(--font-body);
+              font-size: 1.4rem;
+              font-weight: 500;
+              letter-spacing: 1.5px;
+              padding: 0.5rem 1.5rem;
+              color: var(--accent-secondary-hover);
+              background-color: var(--accent-secondary-pale);
+              transition: all 0.2s ease;
+            }
+
+            .price-choice {
+              display: flex;
+              flex-direction: column;
+              align-items: flex-end;
+              gap: 0.3rem;
+
+              .price {
+                font-family: var(--font-body);
+                font-size: 2rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                color: var(--accent-primary);
+                padding: 0.5rem 1rem;
+                transition: color 0.2s ease;
+              }
+
+              .chefChoice {
+                font-family: var(--font-body);
+                font-size: 1.3rem;
+                font-weight: 200;
+                letter-spacing: 1px;
+                color: var(--text-on-dark);
+                background-color: var(--bg-dark);
+                padding: 0.5rem 1.5rem;
+                transition: all 0.2s ease;
+              }
+
+              .empty {
+                width: 0;
+                height: 0;
+                padding: 0;
+                background-color: transparent;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* =============================================
+   1024px
+   ============================================= */
+@media (max-width: 1024px) {
+  .menu-container {
+    header {
+      padding: 5rem 4rem;
+      .main-header h1 {
+        font-size: 4.5rem;
+      }
+      .desc {
+        font-size: 2rem;
+        line-height: 2.5rem;
+      }
+    }
+
+    .tonights-highlights {
+      padding: 3.5rem;
+      .highlight-list .highlight-item {
+        flex: 1 1 28rem;
+        h1 {
+          font-size: 2.8rem;
+        }
+        p:nth-child(3) {
+          font-size: 1.8rem;
+        }
+        .price-tof p:nth-child(1) {
+          font-size: 2.2rem;
+        }
+      }
+    }
+
+    .menu-categories {
+      grid-template-columns: 28rem 1fr;
+      aside {
+        .menu-category {
+          .category-name {
+            font-size: 1.4rem;
+          }
+          .category-type {
+            font-size: 1.5rem;
+          }
+          .category-icon {
+            font-size: 2.4rem;
+          }
+          .number-of-category {
+            font-size: 1.4rem;
+          }
+        }
+      }
+      .category-info {
+        padding: 3.5rem;
+        .selected-category-header h2,
+        .selected-category-header h2 span {
+          font-size: 4rem;
+        }
+        .category-dishes .dish-item {
+          h3 {
+            font-size: 2.1rem;
+          }
+          p:nth-child(3) {
+            font-size: 1.4rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* =============================================
+   820px — Sidebar üste geçer
+   Highlight-list: row + wrap korunur
+   Yatay taşma tamamen kapatılır
+   ============================================= */
+@media (max-width: 820px) {
+  .menu-container {
+    /* Taşmayı tüm sayfa seviyesinde kes */
+    overflow-x: hidden;
+    width: 100%;
+
+    header {
+      padding: 4rem 3.5rem;
+      .main-header h1 {
+        font-size: 4rem;
+      }
+      .desc {
+        font-size: 1.9rem;
+        line-height: 2.4rem;
+      }
+    }
+
+    .tonights-highlights {
+      padding: 3rem;
+      width: 100%;
+
+      header h2 {
+        font-size: 1.8rem;
+      }
+
+      /* highlight-list: row + wrap — hiç değişmez */
+      .highlight-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        .highlight-item {
+          flex: 1 1 100%; /* 820px'de her kart tam genişlik */
+          min-width: 0;
+          h1 {
+            font-size: 2.6rem;
+          }
+          p:nth-child(3) {
+            font-size: 1.8rem;
+          }
+          .price-tof p:nth-child(1) {
+            font-size: 2.2rem;
+          }
+        }
+      }
+    }
+
+    .menu-categories {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
+
+      /* Yükseklik ve overflow sıfırla */
+      height: auto;
+      overflow: visible;
+      width: 100%;
+
+      aside {
+        /* Sticky kaldır */
+        position: static;
+        height: auto;
+        overflow: hidden; /* taşmayı kapat */
+        top: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border-default);
+        width: 100%;
+        box-sizing: border-box;
+
+        h2 {
+          padding: 3rem 3rem 1rem;
+          font-size: 1.6rem;
+        }
+
+        /* Kategoriler yatay kaydırılabilir —
+           ama parent genişliğini AŞMAZ */
+        .aside-content {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          overflow-y: visible;
+          gap: 0.8rem;
+          padding: 0 2rem 1.5rem;
+          width: 100%;
+          box-sizing: border-box;
+
+          /* Scrollbar gizle */
+          scrollbar-width: none;
+          &::-webkit-scrollbar {
+            display: none;
+          }
+
+          .menu-category {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 1.5rem 2rem;
+            min-width: 11rem;
+            max-width: 14rem;
+            border-radius: 0.8rem;
+            border: 1px solid var(--border-default);
+            background-color: var(--bg-page);
+            flex-shrink: 0;
+
+            &.active {
+              background-color: var(--accent-primary-pale);
+              border-color: rgba(212, 98, 42, 0.3);
+            }
+
+            .icon-name-type {
+              flex-direction: column;
+              align-items: center;
+              gap: 0.5rem;
+              width: 100%;
+
+              .category-icon {
+                font-size: 2.6rem;
+              }
+
+              .icon-name {
+                align-items: center;
+                width: 100%;
+
+                .category-name {
+                  font-size: 1.3rem;
+                  text-align: center;
+                  word-break: keep-all;
+                }
+
+                .category-type {
+                  display: none;
+                }
+              }
+            }
+
+            .number-of-category {
+              font-size: 1.2rem;
+              padding: 0.3rem 0.8rem;
+            }
+          }
+        }
+
+        /* Good to Know — yatay */
+        .good-to-know {
+          margin-top: 0;
+          border-top: 1px solid var(--border-default);
+          padding: 2rem 3rem;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          gap: 1rem;
+          width: 100%;
+          box-sizing: border-box;
+
+          .gtk-header h2 {
+            font-size: 1.7rem;
+            white-space: nowrap;
+          }
+
+          .veg-spicy-cchoice {
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 1rem 2rem;
+
+            .veg,
+            .spicy,
+            .cchoice {
+              gap: 0.4rem;
+              .veg-icon,
+              .spicy-icon,
+              .cchoice-icon {
+                font-size: 1.8rem;
+              }
+              p {
+                font-size: 1.4rem;
+              }
+            }
+          }
+        }
+      }
+
+      /* category-info — normal akış */
+      .category-info {
+        height: auto;
+        overflow-y: visible;
+        overflow-x: hidden;
+        padding: 3rem;
+        min-height: 40rem;
+        width: 100%;
+        box-sizing: border-box;
+
+        .empty-state p {
+          font-size: 1.8rem;
+        }
+
+        .selected-category-header {
+          h2,
+          h2 span {
+            font-size: 3.5rem;
+          }
+          span {
+            font-size: 1.1rem;
+          }
+        }
+
+        .category-dishes .dish-item {
+          padding: 1.8rem 0;
+          p:nth-child(1) {
+            font-size: 1.4rem;
+          }
+          h3 {
+            font-size: 2rem;
+          }
+          p:nth-child(3) {
+            font-size: 1.5rem;
+            line-height: 2rem;
+          }
+          .price-type-chefChoice {
+            .tof {
+              font-size: 1.3rem;
+            }
+            .price-choice .price {
+              font-size: 1.8rem;
+            }
+            .price-choice .chefChoice {
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* =============================================
+   430px
+   ============================================= */
+@media (max-width: 430px) {
+  .menu-container {
+    header {
+      padding: 3rem 2.5rem;
+      .top-bar p {
+        font-size: 1.3rem;
+      }
+      .main-header h1 {
+        font-size: 3.6rem;
+      }
+      .desc {
+        font-size: 1.7rem;
+        line-height: 2.4rem;
+      }
+    }
+
+    .tonights-highlights {
+      padding: 2.5rem 2rem;
+      header h2 {
+        font-size: 1.7rem;
+      }
+      .highlight-list .highlight-item {
+        flex: 1 1 100%;
+        padding: 2.2rem 1.8rem;
+        .highlight-category:nth-child(1) {
+          font-size: 1.4rem;
+        }
+        h1 {
+          font-size: 2.6rem;
+        }
+        p:nth-child(3) {
+          font-size: 1.8rem;
+          line-height: 2.3rem;
+        }
+        .price-tof {
+          p:nth-child(1) {
+            font-size: 2.2rem;
+          }
+          p:nth-child(2) {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+
+    .menu-categories {
+      aside {
+        h2 {
+          padding: 2.5rem 2.5rem 1rem;
+          font-size: 1.5rem;
+        }
+
+        .aside-content {
+          padding: 0 1.5rem 1.5rem;
+          gap: 0.7rem;
+          .menu-category {
+            min-width: 10rem;
+            max-width: 12rem;
+            padding: 1.3rem 1.5rem;
+            .icon-name-type .category-icon {
+              font-size: 2.4rem;
+            }
+            .icon-name-type .icon-name .category-name {
+              font-size: 1.2rem;
+            }
+            .number-of-category {
+              font-size: 1.1rem;
+            }
+          }
+        }
+
+        .good-to-know {
+          padding: 2rem 2.5rem;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 1.2rem;
+          .gtk-header h2 {
+            font-size: 1.7rem;
+          }
+          .veg-spicy-cchoice {
+            flex-direction: row;
+            gap: 1rem 2rem;
+            .veg p,
+            .spicy p,
+            .cchoice p {
+              font-size: 1.5rem;
+            }
+            .veg-icon,
+            .spicy-icon,
+            .cchoice-icon {
+              font-size: 1.9rem;
+            }
+          }
+        }
+      }
+
+      .category-info {
+        padding: 2.5rem 2rem;
+
+        .empty-state p {
+          font-size: 1.7rem;
+        }
+
+        .selected-category-header {
+          padding-bottom: 1.5rem;
+          h2,
+          h2 span {
+            font-size: 3.2rem;
+          }
+          span {
+            font-size: 1.1rem;
+          }
+        }
+
+        .category-dishes .dish-item {
+          padding: 1.8rem 0;
+          gap: 0.8rem;
+          p:nth-child(1) {
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+          }
+          h3 {
+            font-size: 2rem;
+          }
+          p:nth-child(3) {
+            font-size: 1.6rem;
+            line-height: 2.2rem;
+          }
+
+          .price-type-chefChoice {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+            .tof {
+              font-size: 1.3rem;
+            }
+            .price-choice {
+              width: 100%;
+              flex-direction: row;
+              align-items: center;
+              justify-content: space-between;
+              .price {
+                font-size: 2rem;
+              }
+              .chefChoice {
+                font-size: 1.3rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* =============================================
+   410px
+   ============================================= */
+@media (max-width: 410px) {
+  .menu-container {
+    header {
+      padding: 3rem 2.2rem;
+      .main-header h1 {
+        font-size: 3.4rem;
+      }
+      .desc {
+        font-size: 1.65rem;
+        line-height: 2.3rem;
+      }
+    }
+
+    .tonights-highlights {
+      padding: 2.2rem 1.8rem;
+      .highlight-list .highlight-item {
+        h1 {
+          font-size: 2.4rem;
+        }
+        p:nth-child(3) {
+          font-size: 1.7rem;
+        }
+      }
+    }
+
+    .menu-categories {
+      aside .aside-content .menu-category {
+        min-width: 9.5rem;
+        .icon-name-type .icon-name .category-name {
+          font-size: 1.15rem;
+        }
+      }
+
+      .category-info {
+        padding: 2.2rem 1.8rem;
+        .selected-category-header h2,
+        .selected-category-header h2 span {
+          font-size: 3rem;
+        }
+        .category-dishes .dish-item {
+          h3 {
+            font-size: 1.9rem;
+          }
+          p:nth-child(3) {
+            font-size: 1.55rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* =============================================
+   390px
+   ============================================= */
+@media (max-width: 390px) {
+  .menu-container {
+    header {
+      padding: 2.8rem 2rem;
+      .main-header h1 {
+        font-size: 3.2rem;
+      }
+      .desc {
+        font-size: 1.6rem;
+        line-height: 2.2rem;
+      }
+    }
+
+    .tonights-highlights {
+      padding: 2rem 1.8rem;
+      .highlight-list .highlight-item {
+        padding: 2rem 1.5rem;
+        h1 {
+          font-size: 2.3rem;
+        }
+        p:nth-child(3) {
+          font-size: 1.65rem;
+        }
+        .price-tof p:nth-child(1) {
+          font-size: 2rem;
+        }
+      }
+    }
+
+    .menu-categories {
+      aside {
+        h2 {
+          padding: 2.2rem 2rem 0.8rem;
+        }
+        .aside-content {
+          padding: 0 1.2rem 1.2rem;
+          .menu-category {
+            min-width: 9rem;
+            max-width: 11rem;
+          }
+        }
+        .good-to-know {
+          padding: 1.8rem 2rem;
+        }
+      }
+
+      .category-info {
+        padding: 2rem 1.8rem;
+        .selected-category-header h2,
+        .selected-category-header h2 span {
+          font-size: 2.8rem;
+        }
+        .category-dishes .dish-item {
+          p:nth-child(1) {
+            font-size: 1.35rem;
+          }
+          h3 {
+            font-size: 1.8rem;
+          }
+          p:nth-child(3) {
+            font-size: 1.5rem;
+          }
+          .price-type-chefChoice .price-choice .price {
+            font-size: 1.9rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* =============================================
+   375px
+   ============================================= */
+@media (max-width: 375px) {
+  .menu-container {
+    header {
+      padding: 2.5rem 1.8rem;
+      .top-bar p {
+        font-size: 1.2rem;
+      }
+      .main-header h1 {
+        font-size: 3rem;
+      }
+      .desc {
+        font-size: 1.5rem;
+        line-height: 2.1rem;
+      }
+    }
+
+    .tonights-highlights {
+      padding: 2rem 1.6rem;
+      header h2 {
+        font-size: 1.6rem;
+      }
+      .highlight-list .highlight-item {
+        padding: 1.8rem 1.4rem;
+        h1 {
+          font-size: 2.2rem;
+        }
+        p:nth-child(3) {
+          font-size: 1.6rem;
+        }
+        .price-tof p:nth-child(1) {
+          font-size: 1.9rem;
+        }
+        .price-tof p:nth-child(2) {
+          font-size: 1.1rem;
+        }
+      }
+    }
+
+    .menu-categories {
+      aside {
+        h2 {
+          padding: 2rem 1.8rem 0.8rem;
+          font-size: 1.4rem;
+        }
+        .aside-content {
+          padding: 0 1rem 1rem;
+          .menu-category {
+            min-width: 8.5rem;
+            max-width: 10rem;
+            padding: 1.2rem 1rem;
+            .icon-name-type .category-icon {
+              font-size: 2.2rem;
+            }
+            .icon-name-type .icon-name .category-name {
+              font-size: 1.1rem;
+            }
+            .number-of-category {
+              font-size: 1rem;
+            }
+          }
+        }
+        .good-to-know {
+          padding: 1.6rem 1.8rem;
+          .gtk-header h2 {
+            font-size: 1.6rem;
+          }
+          .veg-spicy-cchoice .veg p,
+          .veg-spicy-cchoice .spicy p,
+          .veg-spicy-cchoice .cchoice p {
+            font-size: 1.4rem;
+          }
+        }
+      }
+
+      .category-info {
+        padding: 1.8rem 1.6rem;
+        .empty-state p {
+          font-size: 1.6rem;
+        }
+        .selected-category-header {
+          padding-bottom: 1.2rem;
+          h2,
+          h2 span {
+            font-size: 2.6rem;
+          }
+          span {
+            font-size: 1rem;
+          }
+        }
+        .category-dishes .dish-item {
+          p:nth-child(1) {
+            font-size: 1.3rem;
+          }
+          h3 {
+            font-size: 1.7rem;
+          }
+          p:nth-child(3) {
+            font-size: 1.45rem;
+            line-height: 2rem;
+          }
+          .price-type-chefChoice {
+            .tof {
+              font-size: 1.2rem;
+            }
+            .price-choice .price {
+              font-size: 1.8rem;
+            }
+            .price-choice .chefChoice {
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
