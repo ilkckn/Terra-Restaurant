@@ -1,0 +1,299 @@
+.milestones-container {
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 2rem;
+  padding: 6rem 7rem;
+  background-color: var(--bg-dark);
+
+  header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    p {
+      font-family: var(--font-body);
+      font-size: 1.5rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent-primary-light);
+    }
+
+    h1 {
+      font-family: var(--font-heading);
+      font-size: 5rem;
+      text-transform: capitalize;
+      letter-spacing: 1px;
+      color: var(--text-on-dark);
+
+      span {
+        font-style: italic;
+        color: var(--accent-primary-light);
+      }
+    }
+  }
+
+  .content {
+    display: grid;
+
+    .milestone {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 2.5rem 2.5rem 2.5rem 0;
+      border-top: 1px solid var(--text-body);
+
+      .year {
+        p {
+          font-family: var(--font-heading);
+          font-size: 3.5rem;
+          color: var(--accent-primary-light);
+        }
+      }
+
+      .inner-content {
+        display: flex;
+        flex-direction: column;
+        padding: 1.5rem;
+        border-left: 1px solid var(--text-body);
+
+        h2 {
+          font-family: var(--font-heading);
+          font-size: 2.5rem;
+          font-weight: 400;
+          color: var(--text-on-dark);
+        }
+
+        p {
+          margin-top: 0.5rem;
+          font-family: var(--font-elegant);
+          font-size: 2.1rem;
+          font-weight: 400;
+          letter-spacing: 0.8px;
+          line-height: 2.5rem;
+          color: var(--text-on-dark-muted);
+        }
+      }
+    }
+
+    .milestone:last-child {
+      border-bottom: 1px solid var(--text-body);
+    }
+  }
+}
+
+/* =============================================
+   1024px
+   ============================================= */
+@media (max-width: 1024px) {
+  .milestones-container {
+    padding: 5rem 5rem;
+
+    header {
+      h1 {
+        font-size: 4.5rem;
+      }
+    }
+
+    .content .milestone {
+      .year p {
+        font-size: 3.2rem;
+      }
+      .inner-content {
+        h2 {
+          font-size: 2.3rem;
+        }
+        p {
+          font-size: 2rem;
+          line-height: 2.4rem;
+        }
+      }
+    }
+  }
+}
+
+/* =============================================
+   820px
+   ============================================= */
+@media (max-width: 820px) {
+  .milestones-container {
+    padding: 5rem 4rem;
+
+    header {
+      p {
+        font-size: 1.4rem;
+      }
+      h1 {
+        font-size: 4.2rem;
+      }
+    }
+
+    .content .milestone {
+      gap: 1.2rem;
+      .year p {
+        font-size: 3rem;
+      }
+      .inner-content {
+        h2 {
+          font-size: 2.2rem;
+        }
+        p {
+          font-size: 1.9rem;
+        }
+      }
+    }
+  }
+}
+
+/* =============================================
+   768px
+   ============================================= */
+@media (max-width: 768px) {
+  .milestones-container {
+    padding: 4rem 3rem;
+
+    header {
+      h1 {
+        font-size: 4rem;
+      }
+    }
+
+    .content .milestone {
+      padding: 2rem 1.5rem 2rem 0;
+      gap: 1rem;
+
+      .year {
+        min-width: 8rem;
+      }
+      .year p {
+        font-size: 2.8rem;
+      }
+
+      .inner-content {
+        padding: 1rem 1.2rem;
+        h2 {
+          font-size: 2rem;
+        }
+        p {
+          font-size: 1.8rem;
+          line-height: 2.3rem;
+        }
+      }
+    }
+  }
+}
+
+/* =============================================
+   430px — year üste alınır, dikey düzen
+   ============================================= */
+@media (max-width: 430px) {
+  .milestones-container {
+    padding: 3.5rem 2.5rem;
+    gap: 1.5rem;
+
+    header {
+      margin-bottom: 1rem;
+      p {
+        font-size: 1.3rem;
+      }
+      h1 {
+        font-size: 3.6rem;
+        letter-spacing: 0.5px;
+      }
+    }
+
+    .content .milestone {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.8rem;
+      padding: 2.5rem 0;
+
+      .year p {
+        font-size: 3rem;
+        line-height: 1;
+      }
+
+      .inner-content {
+        border-left: 2px solid var(--accent-primary);
+        border-top: none;
+        padding: 0 0 0 1.5rem;
+
+        h2 {
+          font-size: 2.1rem;
+        }
+        p {
+          font-size: 1.8rem;
+          line-height: 2.5rem;
+        }
+      }
+    }
+  }
+}
+
+/* =============================================
+   390px
+   ============================================= */
+@media (max-width: 390px) {
+  .milestones-container {
+    padding: 3rem 2rem;
+
+    header {
+      h1 {
+        font-size: 3.3rem;
+      }
+    }
+
+    .content .milestone {
+      padding: 2.2rem 0;
+
+      .year p {
+        font-size: 2.8rem;
+      }
+      .inner-content {
+        h2 {
+          font-size: 2rem;
+        }
+        p {
+          font-size: 1.7rem;
+          line-height: 2.4rem;
+        }
+      }
+    }
+  }
+}
+
+/* =============================================
+   375px
+   ============================================= */
+@media (max-width: 375px) {
+  .milestones-container {
+    padding: 2.8rem 1.8rem;
+
+    header {
+      p {
+        font-size: 1.2rem;
+      }
+      h1 {
+        font-size: 3.1rem;
+      }
+    }
+
+    .content .milestone {
+      padding: 2rem 0;
+
+      .year p {
+        font-size: 2.6rem;
+      }
+      .inner-content {
+        h2 {
+          font-size: 1.9rem;
+        }
+        p {
+          font-size: 1.6rem;
+          line-height: 2.3rem;
+        }
+      }
+    }
+  }
+}
