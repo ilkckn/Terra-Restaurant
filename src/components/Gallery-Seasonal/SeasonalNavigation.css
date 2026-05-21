@@ -1,0 +1,241 @@
+.seasonal-navigation-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: var(--bg-nav);
+
+  .box {
+    padding: 6rem;
+    border: 1px solid var(--border-default);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    transition: all 0.5s ease;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0.5rem;
+      background-color: var(--accent-secondary-hover);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s ease;
+    }
+
+    &:hover::before {
+      transform: scaleX(1);
+    }
+
+    &:hover {
+      background-color: var(--bg-section-alt);
+    }
+
+    p {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent-secondary-hover);
+    }
+
+    h2 {
+      text-align: center;
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 3.7rem;
+      text-transform: capitalize;
+      color: var(--text-heading);
+    }
+
+    span {
+      font-family: var(--font-body);
+      font-size: 1.5rem;
+      text-transform: capitalize;
+      letter-spacing: 1px;
+    }
+
+    .summer {
+      color: var(--accent-primary);
+    }
+    .autumn {
+      color: var(--accent-gold);
+    }
+    .winter {
+      color: rgb(107, 146, 231);
+    }
+  }
+
+  .box:nth-child(2) {
+    position: relative;
+    transition: all 0.5s ease;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0.5rem;
+      background-color: var(--accent-primary);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s ease;
+    }
+
+    &:hover::before {
+      transform: scaleX(1);
+    }
+  }
+
+  .box:nth-child(3) {
+    position: relative;
+    transition: all 0.5s ease;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0.5rem;
+      background-color: var(--accent-gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s ease;
+    }
+
+    &:hover::before {
+      transform: scaleX(1);
+    }
+  }
+
+  .box:nth-child(4) {
+    position: relative;
+    transition: all 0.5s ease;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0.5rem;
+      background-color: rgb(107, 146, 231);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s ease;
+    }
+
+    &:hover::before {
+      transform: scaleX(1);
+    }
+  }
+}
+
+/* ── TABLET: 1024px ── */
+@media (max-width: 1024px) {
+  .seasonal-navigation-container {
+    .box {
+      padding: 4rem 3rem;
+
+      h2 {
+        font-size: 2.5rem;
+        line-height: 3rem;
+      }
+
+      p {
+        font-size: 1.8rem;
+      }
+      span {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
+
+/* ── KÜÇÜK TABLET: 768px ── */
+@media (max-width: 768px) {
+  .seasonal-navigation-container {
+    grid-template-columns: repeat(2, 1fr);
+
+    .box {
+      padding: 3.5rem 2rem;
+
+      h2 {
+        font-size: 2.2rem;
+        line-height: 2.8rem;
+      }
+
+      p {
+        font-size: 1.6rem;
+      }
+    }
+  }
+}
+
+/* ── MOBİL: 430px ── */
+@media (max-width: 430px) {
+  .seasonal-navigation-container {
+    grid-template-columns: 1fr;
+
+    .box {
+      padding: 3rem 1.8rem;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 2rem;
+      text-align: left;
+
+      /* Hover scale'i mobilde kapat */
+      &:hover {
+        background-color: var(--bg-section-alt);
+      }
+
+      p {
+        font-size: 1.5rem;
+        min-width: 8rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+        line-height: 2.4rem;
+        text-align: left;
+        flex: 1;
+      }
+
+      span {
+        font-size: 1.3rem;
+        white-space: nowrap;
+      }
+    }
+  }
+}
+
+/* ── MOBİL: 375px ── */
+@media (max-width: 375px) {
+  .seasonal-navigation-container {
+    .box {
+      padding: 2.5rem 1.5rem;
+      gap: 1.5rem;
+
+      p {
+        font-size: 1.3rem;
+        min-width: 7rem;
+      }
+      h2 {
+        font-size: 1.8rem;
+        line-height: 2.2rem;
+      }
+      span {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}

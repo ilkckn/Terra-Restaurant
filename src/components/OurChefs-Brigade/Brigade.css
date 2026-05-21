@@ -1,0 +1,380 @@
+.brigade-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 6rem;
+
+  header {
+    display: flex;
+    flex-direction: column;
+
+    p {
+      font-family: var(--font-body);
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .main-header {
+      display: flex;
+      flex-direction: column;
+      line-height: 6rem;
+
+      h1 {
+        font-family: var(--font-heading);
+        font-size: 5.5rem;
+        font-weight: 700;
+        color: var(--text-heading);
+        letter-spacing: 0.5px;
+
+        span {
+          color: var(--accent-primary);
+          font-style: italic;
+        }
+      }
+    }
+  }
+
+  .chefs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+
+    .chef-card {
+      display: flex;
+      flex-direction: column;
+      background-color: var(--bg-nav);
+      border: 1px solid var(--border-default);
+      cursor: pointer;
+
+      .image {
+        width: 100%;
+        height: 55rem;
+        position: relative;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center top;
+          display: block;
+          transition: transform 0.3s ease;
+
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%) scaleX(0);
+          transform-origin: center;
+          width: 100%;
+          height: 0.5rem;
+          background-color: var(--accent-primary);
+          transition: transform 0.3s ease;
+        }
+
+        &:hover::after {
+          transform: translateX(-50%) scaleX(1);
+        }
+      }
+
+      .info {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 2.5rem;
+
+        h2 {
+          font-family: var(--font-heading);
+          font-size: 2.2rem;
+          font-weight: 800;
+          letter-spacing: 0.5px;
+          text-transform: uppercase;
+          color: var(--text-heading);
+        }
+
+        p:nth-child(2) {
+          font-family: var(--font-body);
+          font-size: 1.6rem;
+          font-weight: 500;
+          color: var(--accent-primary);
+        }
+
+        p:nth-child(3) {
+          font-family: var(--font-elegant);
+          font-size: 2.1rem;
+          font-weight: 400;
+          letter-spacing: 0.5px;
+          line-height: 2.5rem;
+          color: var(--text-body);
+        }
+
+        .skills {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.75rem;
+
+          span {
+            font-family: var(--font-body);
+            font-size: 1.3rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            color: var(--accent-secondary-hover);
+            background-color: var(--accent-secondary-pale);
+            padding: 0.8rem 1.8rem;
+            border-radius: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* =============================================
+   1024px — 2 kolon
+   ============================================= */
+@media (max-width: 1024px) {
+  .brigade-container {
+    padding: 5rem 4rem;
+
+    header {
+      p {
+        font-size: 1.5rem;
+      }
+      .main-header h1 {
+        font-size: 5rem;
+        line-height: 5.5rem;
+      }
+    }
+
+    .chefs {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+
+      .chef-card {
+        .image {
+          height: 48rem;
+        }
+        .info {
+          h2 {
+            font-size: 2rem;
+          }
+          p:nth-child(3) {
+            font-size: 1.9rem;
+            line-height: 2.4rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* =============================================
+   820px
+   ============================================= */
+@media (max-width: 820px) {
+  .brigade-container {
+    padding: 5rem 4rem;
+
+    header {
+      p {
+        font-size: 1.4rem;
+      }
+      .main-header h1 {
+        font-size: 4.5rem;
+        line-height: 5rem;
+      }
+    }
+
+    .chefs {
+      grid-template-columns: repeat(2, 1fr);
+
+      .chef-card {
+        .image {
+          height: 42rem;
+        }
+        .info {
+          padding: 2rem;
+          h2 {
+            font-size: 2rem;
+          }
+          p:nth-child(2) {
+            font-size: 1.5rem;
+          }
+          p:nth-child(3) {
+            font-size: 1.9rem;
+            line-height: 2.4rem;
+          }
+          .skills span {
+            font-size: 1.25rem;
+            padding: 0.7rem 1.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* =============================================
+   768px
+   ============================================= */
+@media (max-width: 768px) {
+  .brigade-container {
+    padding: 4rem 3rem;
+
+    header {
+      .main-header h1 {
+        font-size: 4.2rem;
+      }
+    }
+
+    .chefs {
+      .chef-card {
+        .image {
+          height: 38rem;
+        }
+        .info {
+          h2 {
+            font-size: 1.9rem;
+          }
+          p:nth-child(3) {
+            font-size: 1.8rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* =============================================
+   430px — tek kolon
+   ============================================= */
+@media (max-width: 430px) {
+  .brigade-container {
+    padding: 3.5rem 2.5rem;
+    gap: 1.5rem;
+
+    header {
+      p {
+        font-size: 1.3rem;
+        letter-spacing: 2px;
+      }
+      .main-header {
+        line-height: 4.5rem;
+        h1 {
+          font-size: 3.8rem;
+        }
+      }
+    }
+
+    .chefs {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+
+      .chef-card {
+        .image {
+          height: 45rem;
+        }
+        .info {
+          padding: 2.5rem;
+          h2 {
+            font-size: 2.2rem;
+          }
+          p:nth-child(2) {
+            font-size: 1.6rem;
+          }
+          p:nth-child(3) {
+            font-size: 2rem;
+            line-height: 2.6rem;
+          }
+          .skills span {
+            font-size: 1.35rem;
+            padding: 0.8rem 1.6rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* =============================================
+   390px
+   ============================================= */
+@media (max-width: 390px) {
+  .brigade-container {
+    padding: 3rem 2rem;
+
+    header {
+      .main-header h1 {
+        font-size: 3.5rem;
+      }
+    }
+
+    .chefs .chef-card {
+      .image {
+        height: 40rem;
+      }
+      .info {
+        padding: 2rem;
+        h2 {
+          font-size: 2rem;
+        }
+        p:nth-child(3) {
+          font-size: 1.9rem;
+          line-height: 2.5rem;
+        }
+      }
+    }
+  }
+}
+
+/* =============================================
+   375px
+   ============================================= */
+@media (max-width: 375px) {
+  .brigade-container {
+    padding: 2.8rem 1.8rem;
+
+    header {
+      p {
+        font-size: 1.2rem;
+      }
+      .main-header h1 {
+        font-size: 3.3rem;
+      }
+    }
+
+    .chefs .chef-card {
+      .image {
+        height: 38rem;
+      }
+      .info {
+        padding: 1.8rem;
+        h2 {
+          font-size: 1.9rem;
+        }
+        p:nth-child(2) {
+          font-size: 1.5rem;
+        }
+        p:nth-child(3) {
+          font-size: 1.8rem;
+          line-height: 2.4rem;
+        }
+        .skills span {
+          font-size: 1.25rem;
+          padding: 0.7rem 1.4rem;
+        }
+      }
+    }
+  }
+}

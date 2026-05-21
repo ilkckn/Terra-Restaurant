@@ -20,7 +20,6 @@ function Section6() {
             <p className="p-par">(555) 123-4567</p>
           </div>
         </div>
-        <phone></phone>
       </div>
 
       <div className="content-mid">
