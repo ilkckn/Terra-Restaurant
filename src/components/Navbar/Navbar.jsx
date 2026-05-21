@@ -1,11 +1,12 @@
 import "./Navbar.css";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { IoCloseOutline } from "react-icons/io5";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -16,11 +17,16 @@ function Navbar() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const handleNavigate = () => {
+    navigate("/");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <section className="navbar">
       <nav>
         {/* Logo */}
-        <div className="logo">
+        <div className="logo" onClick={handleNavigate}>
           <p>
             Ter<span>r</span>a
           </p>
