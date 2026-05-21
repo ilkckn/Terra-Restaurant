@@ -17,6 +17,7 @@
   --bg-card: #fae5d9; /* Kart arka planı (terracotta açık tonu) */
   --bg-card-green: #e8f0e9; /* Yeşil aksanlı kart arka planı */
   --bg-dark: #2d2d2b; /* Koyu section (stats bar, footer gibi) */
+  --bg-dark-alt: #3a3a38; /* Koyu section için alternatif (daha koyu) */
   --bg-nav: #ffffff; /* Navbar arka planı */
 
   /* ─────────────────────────────────────────

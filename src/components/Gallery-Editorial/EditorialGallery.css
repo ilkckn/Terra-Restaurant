@@ -1,0 +1,451 @@
+.editorial-gallery-container {
+  padding: 7rem 5rem;
+  background: var(--bg, #f8f6f1);
+  border-bottom: 1px solid var(--border, #e0dcd4);
+}
+
+.eg-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 5rem;
+}
+
+.eg-header-left {
+}
+
+.eg-tag {
+  font-size: 1rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #d4622a;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.eg-title {
+  font-family: "Playfair Display", serif;
+  font-size: 4rem;
+  font-weight: 700;
+  color: #2d2d2b;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.eg-title em {
+  color: #d4622a;
+  font-style: italic;
+}
+
+.eg-count {
+  font-family: "Playfair Display", serif;
+  font-size: 7rem;
+  font-weight: 700;
+  color: rgba(212, 98, 42, 0.1);
+  line-height: 1;
+  user-select: none;
+}
+
+/* ── GRID ── */
+.eg-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+}
+
+/* ── KART BAZA ── */
+.eg-card {
+  background: #fff;
+  border: 1px solid #e0dcd4;
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+  position: relative;
+}
+
+.eg-card:hover {
+  border-color: rgba(212, 98, 42, 0.35);
+  transform: translateY(-3px);
+}
+
+/* Kolon boyutları */
+.eg-card--wide {
+  grid-column: span 8;
+}
+.eg-card--narrow {
+  grid-column: span 4;
+}
+.eg-card--half {
+  grid-column: span 6;
+}
+.eg-card--third {
+  grid-column: span 4;
+}
+
+/* ── GENİŞ KART — yatay split ── */
+.eg-card--wide .eg-card-inner {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  height: 100%;
+}
+
+.eg-card--wide .eg-img {
+  height: 100%;
+  min-height: 38rem;
+}
+
+.eg-card--wide .eg-body {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* ── GÖRSEL ALANI ── */
+.eg-img {
+  position: relative;
+  overflow: hidden;
+  background: #f2efe9;
+}
+
+.eg-img--tall {
+  height: 40rem;
+}
+.eg-img--mid {
+  height: 30rem;
+}
+.eg-img--short {
+  height: 22rem;
+}
+
+.eg-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.eg-card:hover .eg-img img {
+  transform: scale(1.04);
+}
+
+.eg-card:not(.eg-card--wide) .eg-img::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0.35rem;
+  background: #d4622a;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.eg-card:not(.eg-card--wide):hover .eg-img::after {
+  transform: scaleX(1);
+}
+
+/* ── BADGE ── */
+.eg-badge {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  padding: 0.4rem 1.2rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  z-index: 2;
+}
+
+.eg-badge--terra {
+  background: #d4622a;
+  color: #fff;
+}
+.eg-badge--dark {
+  background: #2d2d2b;
+  color: #f8f6f1;
+}
+.eg-badge--gold {
+  background: #e8b84b;
+  color: #2d2d2b;
+}
+.eg-badge--sage {
+  background: #7a9e7e;
+  color: #fff;
+}
+
+/* ── KART BODY ── */
+.eg-body {
+  padding: 2rem 2rem 2.2rem;
+}
+
+.eg-cat {
+  font-size: 0.9rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #d4622a;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  display: block;
+}
+
+.eg-card-title {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2d2d2b;
+  line-height: 1.2;
+  margin: 0 0 0.8rem 0;
+}
+
+.eg-card--wide .eg-card-title {
+  font-size: 2.4rem;
+}
+
+.eg-desc {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.65rem;
+  font-weight: 300;
+  color: #6b6b68;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.eg-card--wide .eg-desc {
+  font-size: 1.8rem;
+}
+
+/* ── META ── */
+.eg-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #e0dcd4;
+}
+
+.eg-meta-chef {
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #a8a8a4;
+  font-weight: 600;
+}
+
+.eg-meta-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #a8a8a4;
+  flex-shrink: 0;
+}
+
+.eg-meta-season {
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #a8a8a4;
+}
+
+/* ── VIEW ALL BUTTON ── */
+.see-all {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+}
+
+.view-all-btn {
+  gap: 0.5rem;
+  padding: 1rem 3.5rem;
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--accent-primary);
+  border: 1px solid var(--accent-primary);
+  background: transparent;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+  cursor: pointer;
+
+  span {
+    margin-left: 0.5rem;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    background-color: var(--accent-primary);
+    color: #fff;
+    border-color: var(--accent-primary);
+  }
+}
+
+/* ── TABLET: 1024px ── */
+@media (max-width: 1024px) {
+  .editorial-gallery-container {
+    padding: 5rem 3rem;
+  }
+
+  .eg-card--wide {
+    grid-column: span 12;
+  }
+
+  .eg-card--wide .eg-card-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .eg-card--wide .eg-img {
+    min-height: 28rem;
+    height: 28rem;
+  }
+
+  .eg-card--narrow,
+  .eg-card--half,
+  .eg-card--third {
+    grid-column: span 6;
+  }
+}
+
+/* ── KÜÇÜK TABLET: 768px ── */
+@media (max-width: 768px) {
+  .editorial-gallery-container {
+    padding: 4rem 2.5rem;
+  }
+
+  .eg-header {
+    margin-bottom: 3rem;
+  }
+
+  .eg-title {
+    font-size: 3.2rem;
+  }
+  .eg-count {
+    font-size: 5rem;
+  }
+
+  .eg-card--narrow,
+  .eg-card--half,
+  .eg-card--third {
+    grid-column: span 6;
+  }
+
+  .eg-img--mid {
+    height: 24rem;
+  }
+  .eg-img--short {
+    height: 18rem;
+  }
+}
+
+/* ── MOBİL: 430px ── */
+@media (max-width: 430px) {
+  .editorial-gallery-container {
+    padding: 3.5rem 1.8rem;
+  }
+
+  .eg-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .eg-title {
+    font-size: 2.8rem;
+  }
+  .eg-count {
+    display: none;
+  }
+
+  /* Hepsi tam genişlik */
+  .eg-card--wide,
+  .eg-card--narrow,
+  .eg-card--half,
+  .eg-card--third {
+    grid-column: span 12;
+  }
+
+  /* Geniş kart dikey */
+  .eg-card--wide .eg-card-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .eg-card--wide .eg-img {
+    min-height: 24rem;
+    height: 24rem;
+  }
+
+  .eg-img--tall {
+    height: 26rem;
+  }
+  .eg-img--mid {
+    height: 22rem;
+  }
+  .eg-img--short {
+    height: 18rem;
+  }
+
+  .eg-card-title {
+    font-size: 1.8rem;
+  }
+  .eg-desc {
+    font-size: 1.5rem;
+  }
+
+  /* Hover transform mobilde kapat */
+  .eg-card:hover {
+    transform: none;
+  }
+
+  .view-all-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 1.2rem 2rem;
+    font-size: 1.2rem;
+  }
+}
+
+/* ── MOBİL: 375px ── */
+@media (max-width: 375px) {
+  .editorial-gallery-container {
+    padding: 3rem 1.5rem;
+  }
+
+  .eg-title {
+    font-size: 2.4rem;
+  }
+
+  .eg-card--wide .eg-img,
+  .eg-img--tall {
+    height: 22rem;
+    min-height: 22rem;
+  }
+  .eg-img--mid {
+    height: 20rem;
+  }
+  .eg-img--short {
+    height: 16rem;
+  }
+
+  .eg-card-title {
+    font-size: 1.6rem;
+  }
+  .eg-desc {
+    font-size: 1.4rem;
+  }
+
+  .eg-meta-chef,
+  .eg-meta-season {
+    font-size: 0.8rem;
+  }
+}

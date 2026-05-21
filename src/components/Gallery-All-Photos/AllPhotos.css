@@ -1,0 +1,661 @@
+/* ── ALL PHOTOS PAGE ── */
+.all-photos-page {
+  min-height: 100vh;
+  background: var(--bg, #F8F6F1);
+  font-family: "Montserrat", sans-serif;
+}
+
+/* ── PAGE HERO ── */
+.ap-hero {
+  background: var(--bg-dark, #2D2D2B);
+  padding: 5rem 5rem 4rem;
+  border-bottom: 1px solid rgba(248, 246, 241, 0.06);
+}
+
+.ap-hero-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 3.5rem;
+}
+
+.ap-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(248, 246, 241, 0.4);
+}
+
+.ap-breadcrumb a {
+  color: rgba(248, 246, 241, 0.4);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.ap-breadcrumb a:hover {
+  color: #D4622A;
+}
+
+.ap-breadcrumb-sep {
+  color: rgba(248, 246, 241, 0.2);
+}
+
+.ap-breadcrumb-current {
+  color: rgba(248, 246, 241, 0.7);
+}
+
+.ap-hero-count {
+  font-family: var(--font-body);
+  font-size: 1.4rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(248, 246, 241, 0.3);
+}
+
+.ap-hero-count span {
+  color: #D4622A;
+  font-weight: 700;
+}
+
+.ap-hero-title {
+  font-family: var(--font-heading);
+  font-size: 5rem;
+  font-weight: 700;
+  color: #F8F6F1;
+  line-height: 1.05;
+  margin: 0 0 0.5rem 0;
+}
+
+.ap-hero-title em {
+  color: #D4622A;
+  font-style: italic;
+}
+
+.ap-hero-sub {
+  font-family: var(--font-elegant);
+  font-size: 2.4rem;
+  font-weight: 300;
+  color: rgba(248, 246, 241, 0.45);
+  line-height: 1.6;
+}
+
+/* ── FILTER BAR ── */
+.ap-filter-bar {
+  background: #fff;
+  border-bottom: 1px solid #E0DCD4;
+  padding: 0 5rem;
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* Kategori filtreleri */
+.ap-filter-cats {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  flex: 1;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #E0DCD4 transparent;
+  /* Son buton kesilmesin diye sağa padding */
+  padding-right: 2rem;
+}
+
+.ap-filter-cats::-webkit-scrollbar {
+  height: 3px;
+}
+
+.ap-filter-cats::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.ap-filter-cats::-webkit-scrollbar-thumb {
+  background: #E0DCD4;
+  border-radius: 2px;
+}
+
+.ap-filter-btn {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 2rem 2.2rem;
+  background: transparent;
+  color: #A8A8A4;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.ap-filter-btn:hover {
+  color: #2D2D2B;
+  border-bottom-color: rgba(212, 98, 42, 0.3);
+}
+
+.ap-filter-btn.active {
+  color: #D4622A;
+  border-bottom-color: #D4622A;
+}
+
+/* Sağ taraf: season + sort */
+.ap-filter-right {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border-left: 1px solid #E0DCD4;
+  padding-left: 2rem;
+  flex-shrink: 0;
+}
+
+.ap-filter-select {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 2rem 2.5rem 2rem 1.5rem;
+  background: transparent;
+  color: #6B6B68;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23A8A8A4' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  transition: color 0.2s;
+}
+
+.ap-filter-select:hover {
+  color: #D4622A;
+}
+
+/* ── RESULTS BAR ── */
+.ap-results-bar {
+  padding: 2rem 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #E0DCD4;
+  background: #F8F6F1;
+}
+
+.ap-results-text {
+  font-size: 1.1rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #A8A8A4;
+}
+
+.ap-results-text strong {
+  color: #2D2D2B;
+  font-weight: 700;
+}
+
+.ap-view-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ap-view-btn {
+  width: 3.6rem;
+  height: 3.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid #E0DCD4;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #A8A8A4;
+}
+
+.ap-view-btn:hover,
+.ap-view-btn.active {
+  background: #2D2D2B;
+  border-color: #2D2D2B;
+  color: #F8F6F1;
+}
+
+.ap-view-btn svg {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+/* ── PHOTO GRID ── */
+.ap-grid-wrap {
+  padding: 3rem 5rem 7rem;
+}
+
+/* Grid görünümü */
+.ap-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.ap-grid--grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.ap-grid--list {
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* ── GRID KARTI ── */
+.ap-card {
+  background: #fff;
+  border: 1px solid #E0DCD4;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+.ap-card:hover {
+  border-color: rgba(212, 98, 42, 0.3);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Grid kart — dikey */
+.ap-grid--grid .ap-card-img {
+  height: 28rem;
+  overflow: hidden;
+  position: relative;
+  background: #F2EFE9;
+}
+
+.ap-grid--grid .ap-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.ap-card:hover .ap-card-img img {
+  transform: scale(1.04);
+}
+
+.ap-card-img::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0.3rem;
+  background: #D4622A;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.ap-card:hover .ap-card-img::after {
+  transform: scaleX(1);
+}
+
+/* Badge */
+.ap-card-badge {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  padding: 0.35rem 1rem;
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  z-index: 2;
+}
+
+.ap-card-badge--terra { background: #D4622A; color: #fff; }
+.ap-card-badge--dark  { background: #2D2D2B; color: #F8F6F1; }
+.ap-card-badge--gold  { background: #E8B84B; color: #2D2D2B; }
+.ap-card-badge--sage  { background: #7A9E7E; color: #fff; }
+
+/* Grid kart body */
+.ap-grid--grid .ap-card-body {
+  padding: 1.8rem 2rem 2rem;
+}
+
+.ap-card-cat {
+  font-size: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #D4622A;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.ap-card-title {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2D2D2B;
+  line-height: 1.25;
+  margin: 0 0 0.6rem 0;
+}
+
+.ap-card-chef {
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #A8A8A4;
+}
+
+/* ── LIST KARTI ── */
+.ap-grid--list .ap-card {
+  display: grid;
+  grid-template-columns: 20rem 1fr auto;
+  align-items: center;
+}
+
+.ap-grid--list .ap-card-img {
+  height: 14rem;
+  overflow: hidden;
+  position: relative;
+  background: #F2EFE9;
+  flex-shrink: 0;
+}
+
+.ap-grid--list .ap-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.ap-grid--list .ap-card-body {
+  padding: 2rem 2.5rem;
+  border-right: 1px solid #E0DCD4;
+}
+
+.ap-grid--list .ap-card-title {
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+.ap-card-desc {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.9rem;
+  font-weight: 300;
+  color: #6B6B68;
+  line-height: 1.6;
+  margin: 0.5rem 0 0 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ap-card-meta {
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  min-width: 16rem;
+  flex-shrink: 0;
+}
+
+.ap-card-meta-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.ap-card-meta-key {
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #A8A8A4;
+}
+
+.ap-card-meta-val {
+  font-size: 1.2rem;
+  color: #2D2D2B;
+  font-weight: 500;
+}
+
+/* ── EMPTY STATE ── */
+.ap-empty {
+  padding: 8rem 5rem;
+  text-align: center;
+}
+
+.ap-empty-icon {
+  font-size: 5rem;
+  margin-bottom: 2rem;
+  opacity: 0.3;
+}
+
+.ap-empty-title {
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2D2D2B;
+  margin-bottom: 1rem;
+}
+
+.ap-empty-sub {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: #A8A8A4;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .ap-hero { padding: 4rem 3rem 3rem; }
+  .ap-filter-bar { padding: 0 3rem; }
+  .ap-results-bar { padding: 1.5rem 3rem; }
+  .ap-grid-wrap { padding: 2.5rem 3rem 5rem; }
+  .ap-grid--grid { grid-template-columns: repeat(2, 1fr); }
+  .ap-hero-title { font-size: 3.5rem; }
+}
+
+@media (max-width: 640px) {
+  .ap-hero { padding: 3rem 2rem 2.5rem; }
+  .ap-filter-bar { padding: 0 2rem; }
+  .ap-results-bar { padding: 1.2rem 2rem; }
+  .ap-grid-wrap { padding: 2rem 2rem 4rem; }
+  .ap-grid--grid { grid-template-columns: 1fr; }
+  .ap-hero-title { font-size: 2.8rem; }
+  .ap-grid--list .ap-card { grid-template-columns: 12rem 1fr; }
+  .ap-card-meta { display: none; }
+}
+
+/* ── MOBİL: 375 / 390 / 414 / 430px ── */
+@media (max-width: 430px) {
+  /* Hero */
+  .ap-hero {
+    padding: 2.5rem 1.8rem 2rem;
+  }
+
+  .ap-hero-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .ap-breadcrumb {
+    font-size: 1rem;
+  }
+
+  .ap-hero-count {
+    font-size: 1rem;
+  }
+
+  .ap-hero-title {
+    font-size: 3.2rem;
+  }
+
+  .ap-hero-sub {
+    font-size: 1.8rem;
+  }
+
+  /* Filter bar — dikey liste */
+  .ap-filter-bar {
+    flex-direction: column;
+    padding: 0;
+    position: sticky;
+    top: 0;
+  }
+
+  /* Butonlar dikey, wrap ile sarılıyor */
+  .ap-filter-cats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow-x: unset;
+    overflow: hidden;
+    padding: 0;
+    border-bottom: 1px solid #E0DCD4;
+  }
+
+  .ap-filter-btn {
+    font-size: 1rem;
+    padding: 1.4rem 1.2rem;
+    border-bottom: none;
+    border-right: 1px solid #E0DCD4;
+    border-bottom: 1px solid #E0DCD4;
+    text-align: center;
+    letter-spacing: 0.5px;
+  }
+
+  /* Aktif buton — border yok, arka plan */
+  .ap-filter-btn.active {
+    background: rgba(212, 98, 42, 0.08);
+    color: #D4622A;
+    border-color: #E0DCD4;
+    border-bottom-color: #D4622A;
+  }
+
+  /* Sağ taraf: season + sort yatayda yan yana */
+  .ap-filter-right {
+    border-left: none;
+    border-top: 1px solid #E0DCD4;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ap-filter-select {
+    font-size: 1rem;
+    padding: 1.4rem 1rem;
+    border-right: 1px solid #E0DCD4;
+    text-align: center;
+  }
+
+  .ap-filter-select:last-child {
+    border-right: none;
+  }
+
+  /* Results bar */
+  .ap-results-bar {
+    padding: 1.2rem 1.8rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .ap-results-text {
+    font-size: 1rem;
+  }
+
+  /* Grid */
+  .ap-grid-wrap {
+    padding: 1.8rem 1.8rem 4rem;
+  }
+
+  .ap-grid--grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .ap-grid--grid .ap-card-img {
+    height: 22rem;
+  }
+
+  .ap-card-title {
+    font-size: 1.8rem;
+  }
+
+  .ap-card-cat {
+    font-size: 0.9rem;
+  }
+
+  .ap-card-chef {
+    font-size: 0.9rem;
+  }
+
+  /* List view mobilde de tek kolon */
+  .ap-grid--list .ap-card {
+    grid-template-columns: 1fr;
+  }
+
+  .ap-grid--list .ap-card-img {
+    height: 20rem;
+  }
+
+  .ap-grid--list .ap-card-body {
+    border-right: none;
+    border-bottom: 1px solid #E0DCD4;
+    padding: 1.5rem 1.8rem;
+  }
+
+  .ap-card-desc {
+    font-size: 1.6rem;
+  }
+
+  .ap-card-meta {
+    display: none;
+  }
+
+  /* Empty state */
+  .ap-empty {
+    padding: 5rem 2rem;
+  }
+
+  .ap-empty-title {
+    font-size: 2.2rem;
+  }
+
+  .ap-empty-sub {
+    font-size: 1.8rem;
+  }
+}
+
+/* 375px için ekstra ince ayar */
+@media (max-width: 375px) {
+  .ap-hero-title {
+    font-size: 2.8rem;
+  }
+
+  .ap-filter-btn {
+    font-size: 0.9rem;
+    padding: 1.2rem 0.8rem;
+    letter-spacing: 0;
+  }
+
+  .ap-filter-select {
+    font-size: 0.9rem;
+    padding: 1.2rem 0.8rem;
+  }
+
+  .ap-card-title {
+    font-size: 1.6rem;
+  }
+}

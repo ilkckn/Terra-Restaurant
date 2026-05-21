@@ -1,0 +1,259 @@
+.featured-image-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 1rem;
+
+  .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .info {
+    border-bottom: 1px solid var(--border-default);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem;
+    gap: 1rem;
+    background-color: var(--bg-page);
+
+    h2 {
+      font-family: var(--font-body);
+      font-size: 1.7rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--accent-primary);
+    }
+
+    .title {
+      display: flex;
+      flex-direction: column;
+
+      h1 {
+        font-family: var(--font-heading);
+        font-size: 5.5rem;
+        font-weight: 700;
+        letter-spacing: -1px;
+        text-transform: capitalize;
+        color: var(--text-heading);
+        line-height: 1.1;
+      }
+    }
+
+    p {
+      font-family: var(--font-elegant);
+      font-size: 2.4rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text-heading);
+    }
+
+    span {
+      width: 100%;
+      height: 0.2rem;
+      background-color: var(--text-heading);
+      margin: 1.5rem 0;
+    }
+
+    .other-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+
+      .chef,
+      .season,
+      .category,
+      .technique {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        width: 50%;
+
+        p:nth-child(1) {
+          flex: 1;
+          font-family: var(--font-body);
+          font-size: 1.4rem;
+          font-weight: 600;
+          letter-spacing: 0.5px;
+          text-transform: uppercase;
+          color: var(--text-heading);
+        }
+
+        p:nth-child(2) {
+          flex: 2;
+          text-align: left;
+          font-family: var(--font-body);
+          font-size: 1.4rem;
+          font-weight: 400;
+          text-transform: capitalize;
+          color: var(--text-heading);
+        }
+      }
+    }
+  }
+}
+
+/* ── TABLET: 1024px ── */
+@media (max-width: 1024px) {
+  .featured-image-container {
+    .image img {
+      height: 45rem;
+      object-fit: cover;
+    }
+
+    .info {
+      padding: 2.5rem;
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .title h1 {
+        font-size: 4.5rem;
+      }
+
+      p {
+        font-size: 2rem;
+      }
+
+      .other-info {
+        .chef,
+        .season,
+        .category,
+        .technique {
+          width: 70%;
+        }
+      }
+    }
+  }
+}
+
+/* ── KÜÇÜK TABLET: 768px ── */
+@media (max-width: 768px) {
+  .featured-image-container {
+    grid-template-columns: 1fr;
+    padding: 0;
+
+    .image {
+      height: 40rem;
+
+      img {
+        height: 40rem;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .info {
+      padding: 3rem;
+      border-bottom: none;
+      border-top: 1px solid var(--border-default);
+
+      .title h1 {
+        font-size: 4rem;
+      }
+
+      .other-info {
+        .chef,
+        .season,
+        .category,
+        .technique {
+          width: 60%;
+        }
+      }
+    }
+  }
+}
+
+/* ── MOBİL: 430px ── */
+@media (max-width: 430px) {
+  .featured-image-container {
+    .image {
+      height: 30rem;
+
+      img {
+        height: 30rem;
+      }
+    }
+
+    .info {
+      padding: 2.5rem 1.8rem;
+
+      h2 {
+        font-size: 1.3rem;
+      }
+
+      .title h1 {
+        font-size: 3rem;
+        letter-spacing: -0.5px;
+      }
+
+      p {
+        font-size: 1.9rem;
+      }
+
+      span {
+        margin: 1rem 0;
+      }
+
+      .other-info {
+        .chef,
+        .season,
+        .category,
+        .technique {
+          width: 80%;
+          gap: 1rem;
+
+          p:nth-child(1) {
+            font-size: 1.3rem;
+          }
+          p:nth-child(2) {
+            font-size: 1.3rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ── MOBİL: 375px ── */
+@media (max-width: 375px) {
+  .featured-image-container {
+    .image {
+      height: 26rem;
+
+      img {
+        height: 26rem;
+      }
+    }
+
+    .info {
+      padding: 2rem 1.5rem;
+
+      .title h1 {
+        font-size: 2.6rem;
+      }
+
+      p {
+        font-size: 1.7rem;
+      }
+
+      .other-info {
+        .chef,
+        .season,
+        .category,
+        .technique {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
