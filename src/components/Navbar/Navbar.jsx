@@ -22,6 +22,11 @@ function Navbar() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const handleNavigateContact = () => {
+    navigate("/contact");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   return (
     <section className="navbar">
       <nav>
@@ -77,7 +82,7 @@ function Navbar() {
             <HiMenuAlt3 className="menu-icon" onClick={toggleMenu} />
           )}
           {/* Desktopda rezervasyon butonu, mobilde gizli */}
-          <button>Reservation</button>
+          <button onClick={handleNavigateContact}>Reservation</button>
         </div>
       </nav>
 
@@ -135,7 +140,7 @@ function Navbar() {
 
             {/* Rezervasyon butonu */}
             <div className="mobile-reservation-btn">
-              <button onClick={toggleMenu}>Reservation</button>
+              <button onClick={handleNavigateContact}>Reservation</button>
             </div>
 
             {/* Copyright */}
